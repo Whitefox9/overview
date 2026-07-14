@@ -17,14 +17,50 @@
         p {
             color: #666;
         }
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #mensaje {
+            margin-top: 15px;
+            padding: 10px;
+            background-color: #e7f3ff;
+            border-left: 4px solid #007bff;
+            color: #333;
+            display: none;
+        }
     </style>
 </head>
 <body>
     <h1>¡Bienvenido!</h1>
     <p>Este es un código HTML básico de ejemplo.</p>
     
+    <button id="btnBienvenida">Click para saludar</button>
+    <div id="mensaje"></div>
+    
     <script>
         console.log("¡La página ha cargado correctamente!");
+        
+        const btnBienvenida = document.getElementById('btnBienvenida');
+        const mensaje = document.getElementById('mensaje');
+        let contador = 0;
+        
+        btnBienvenida.addEventListener('click', function() {
+            contador++;
+            mensaje.textContent = `¡Hola! Has hecho click ${contador} vez${contador > 1 ? 'es' : ''}`;
+            mensaje.style.display = 'block';
+            btnBienvenida.textContent = 'Click de nuevo';
+        });
     </script>
 </body>
 </html>
